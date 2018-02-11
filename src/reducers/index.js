@@ -13,11 +13,12 @@ const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id);
 
 export const getTotal = (state) => 
   getAddedIds(state)
-    .reduce((total, id) => 
-      total + getProduct(state, id).price * getQuantity(state, id), 0
+    .reduce((accumulator, id) => 
+      accumulator + getProduct(state, id).price * getQuantity(state, id), 0
     )
     .toFixed(2);
 
+// copy products from products, quantity from cart
 export const getCartProducts = (state) => 
   getAddedIds(state).map(id => ({
     ...getProduct(state, id),

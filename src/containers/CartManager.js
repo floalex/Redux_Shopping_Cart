@@ -1,12 +1,14 @@
 import React from 'react';
 import { getTotal, getCartProducts } from '../reducers';
+import { checkout } from '../actions';
 import { connect } from 'react-redux';
 import Cart from '../components/Cart';
 
-const CartManager = ({ products, total }) => (
+const CartManager = ({ products, total, checkout }) => (
   <Cart
     products={products}
-    totla={total}
+    total={total}
+    onCheckoutClicked={ () => checkout(products) }
   />
 );
 
@@ -17,4 +19,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
+  { checkout },
 )(CartManager);

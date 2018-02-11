@@ -20,7 +20,7 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
     <div className="cart">
       <h3>Your Cart</h3>
       <div>{nodes}</div>
-      <p>Total: &#36;{total}</p>
+      <p>Total: ${total}</p>
       <button 
         className="button"
         onClick={onCheckoutClicked}
