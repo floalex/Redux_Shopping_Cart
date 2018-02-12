@@ -3,6 +3,7 @@ import {
   RECEIVE_PRODUCTS, 
   ADD_TO_CART,
   ADD_PRODUCT_ITEM,
+  DELETE_PRODUCT,
 } from '../constants/ActionTypes';
 
 const products = (state, action) => {
@@ -33,6 +34,11 @@ const byId = (state = {}, action) => {
         ...state,
         [nextId]: {id: nextId, ...action.info}
       }; 
+    case DELETE_PRODUCT:
+      delete state[action.productId];
+      return {
+        ...state,
+      };
     default: 
       const { productId } = action;  // const productId = action.productId
       if (productId) {
@@ -52,6 +58,10 @@ const visibleIds = (state = [], action) => {
     case ADD_PRODUCT_ITEM:
       const nextId = state.reduce((maxId, id) => Math.max(id, maxId), -1) + 1;
       return [...state, nextId]; 
+    case DELETE_PRODUCT:
+      return state.filter(id => 
+        id !== action.productId
+      );
     default:
       return state;
   }

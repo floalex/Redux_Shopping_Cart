@@ -38,3 +38,12 @@ export const addNewProduct = (info) => ({
   type: types.ADD_PRODUCT_ITEM,
   info,
 });
+
+export const deleteProduct = (productId) => (dispatch, getState) => {
+  if (!getState().cart.quantityById[productId] > 0) {
+    dispatch({
+      type: types.DELETE_PRODUCT,
+      productId
+    });
+  }
+};

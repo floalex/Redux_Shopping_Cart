@@ -1,12 +1,14 @@
 import React from 'react';
 import Product from './Product';
 
-const ProductItem = ({ product, onAddToCartClicked }) => (
+const ProductItem = ({ product, onAddToCartClicked, onDeleteProductClicked }) => (
   <div style={{ marginBottom: 20 }}>
     <Product
       title={product.title}
       price={product.price}
-      quantity={product.quantity} />
+      quantity={product.quantity}
+      onDeleteProductClicked={onDeleteProductClicked}
+    />
     <button
       className="button"
       onClick={onAddToCartClicked}
