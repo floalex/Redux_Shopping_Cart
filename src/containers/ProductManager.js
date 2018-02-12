@@ -25,5 +25,5 @@ const ProductManager = ({ products, addToCart }) => (
 // connecting state.products with the component
 export default connect(
   mapStateToProps,
-  { addToCart }
+  { addToCart },
 )(ProductManager);

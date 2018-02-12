@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
-import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../constants/ActionTypes';
+import { 
+  RECEIVE_PRODUCTS, 
+  ADD_TO_CART,
+  ADD_PRODUCT_ITEM,
+} from '../constants/ActionTypes';
 
 const products = (state, action) => {
   switch(action.type) {
@@ -22,7 +26,13 @@ const byId = (state = {}, action) => {
           obj[product.id] = product;
           return obj;
         }, {})
-      };
+      }; 
+    case ADD_PRODUCT_ITEM:
+      const nextId = Object.keys(state).reduce((maxId, id) => Math.max(id, maxId), -1) + 1;
+      return {
+        ...state,
+        [nextId]: {id: nextId, ...action.info}
+      }; 
     default: 
       const { productId } = action;  // const productId = action.productId
       if (productId) {
@@ -39,6 +49,9 @@ const visibleIds = (state = [], action) => {
   switch(action.type) {
     case RECEIVE_PRODUCTS:
       return action.products.map(product => product.id);
+    case ADD_PRODUCT_ITEM:
+      const nextId = state.reduce((maxId, id) => Math.max(id, maxId), -1) + 1;
+      return [...state, nextId]; 
     default:
       return state;
   }

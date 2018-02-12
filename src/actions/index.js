@@ -33,3 +33,8 @@ export const checkout = (products) => (dispatch, getState) => {
     cart
   });
 };
+
+export const addNewProduct = (info) => ({ 
+  type: types.ADD_PRODUCT_ITEM,
+  info,
+});
