@@ -3,6 +3,7 @@ import {
   RECEIVE_PRODUCTS, 
   ADD_TO_CART,
   ADD_PRODUCT_ITEM,
+  EDIT_PRODUCT_ITEM,
   DELETE_PRODUCT,
 } from '../constants/ActionTypes';
 
@@ -12,6 +13,11 @@ const products = (state, action) => {
       return {
         ...state,
         quantity: state.quantity - 1,
+      };
+    case EDIT_PRODUCT_ITEM:
+      return {
+        ...state,
+        ...action.info
       };
     default: 
       return state;
@@ -33,7 +39,7 @@ const byId = (state = {}, action) => {
       return {
         ...state,
         [nextId]: {id: nextId, ...action.info}
-      }; 
+      };      
     case DELETE_PRODUCT:
       delete state[action.productId];
       return {

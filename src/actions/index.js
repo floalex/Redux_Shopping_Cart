@@ -39,7 +39,14 @@ export const addNewProduct = (info) => ({
   info,
 });
 
+export const updateProduct = (productId, info) => ({ 
+  type: types.EDIT_PRODUCT_ITEM,
+  productId,
+  info,
+});
+
 export const deleteProduct = (productId) => (dispatch, getState) => {
+  // prevent deleting product when this product already in shopping cart
   if (!getState().cart.quantityById[productId] > 0) {
     dispatch({
       type: types.DELETE_PRODUCT,

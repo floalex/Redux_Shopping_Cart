@@ -4,7 +4,7 @@ const Product = ({ price, quantity, title, onDeleteProductClicked }) => (
   <div className="product">
     {title} - ${price}{quantity ? ` x ${quantity}` : null}
     
-    <button onClick={onDeleteProductClicked}> x</button>
+    <button style={{ marginLeft: 5 }} onClick={onDeleteProductClicked}> x</button>
   </div>
 );
 

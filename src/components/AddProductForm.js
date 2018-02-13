@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 import Form from '../components/Form';
-import { addNewProduct } from '../actions';
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addNewProduct: info => dispatch(addNewProduct(info))
-  };
-};
 
 class AddProductForm extends Component {
 	constructor(props) {
@@ -18,7 +10,7 @@ class AddProductForm extends Component {
   }
   
   handleNewProductSubmit = (info) => {
-  	this.props.addNewProduct(info);
+  	this.props.addNewProduct(info); // conect to Redux in container
   	
   	this.toggleNewProduct();
   }
@@ -50,7 +42,4 @@ class AddProductForm extends Component {
   }
 }
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(AddProductForm);
+export default AddProductForm;

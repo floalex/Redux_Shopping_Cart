@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import ProductManager from './ProductManager';
 import CartManager from './CartManager';
-import AddProductForm from './AddProductForm';
+import AddProductFormContainer from './AddProductFormContainer';
 
 const App = () => (
    <main>
@@ -10,7 +10,7 @@ const App = () => (
     	<h1>Welcome to the Shop!</h1>
   	</header>
     <ProductManager />
-    <AddProductForm />
+    <AddProductFormContainer />
     <CartManager />
   </main>
 );
