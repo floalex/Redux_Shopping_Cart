@@ -58,7 +58,7 @@ class Form extends Component {
 						/>
 					</div>
 					<input type="submit" value="Submit"/>
-					<button onClick={this.props.onCancel}>Cancel</button>
+					<button style={{ marginLeft: 5 }} onClick={this.props.onCancel}>Cancel</button>
 				</form>
 			</div>
 		);

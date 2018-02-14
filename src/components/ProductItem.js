@@ -19,7 +19,6 @@ class ProductItem extends Component {
   }
   
   handleUpdateSubmit = (updatedInfo) => {
-    console.log(this.props.product.id, updatedInfo);
   	this.props.updateProduct(this.props.product.id, updatedInfo);
   	
   	this.toggleEditClick();

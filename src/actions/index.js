@@ -25,6 +25,16 @@ export const addToCart = (productId) => (dispatch, getState) => {
   }
 };
 
+export const removeFromCart = (productId, productQuantity) => ({
+  type: types.REMOVE_FROM_CART,
+  productId,
+  productQuantity
+});
+
+// export const removeFromCart = (productId, productQuantity) => (dispatch, getState) => {
+//   dispatch(removeCartAction(productId, productQuantity));
+// };
+
 // combine dispatch action together
 export const checkout = (products) => (dispatch, getState) => {
   const { cart } = getState();
