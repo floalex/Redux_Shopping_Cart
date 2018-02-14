@@ -7,5 +7,5 @@ convert React Shopping Cart application to use Redux.
 - Removes inventory items
 
 - bonus feature: Removes cart item
-  * the item with added quantity will be removed
+  * the item's corresponding quantity will be removed
   * removed quantity from the cart will go back to the inventory

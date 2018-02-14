@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+// Instead of inserting an export before each variable you’d like to export, you can use this syntax to
+// list off all the exposed variables in one area
 import products, * as fromProducts from './products';
 import cart, * as fromCart from './cart';
 
